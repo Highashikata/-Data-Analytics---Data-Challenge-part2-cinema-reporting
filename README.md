@@ -164,3 +164,45 @@ CALCULATE (
 ```
 
 **Commentaire :** La fonction est utilisée pour supprimer tous les filtres de la table spécifiée, à l'exception des colonnes indiquées. Cela permet de calculer des agrégations en ignorant certains filtres appliqués par le contexte des lignes, tout en respectant les filtres sur les colonnes spécifiées.
+
+
+**Parmi les Best practices :** La création de la table Calendrier pour faciliter les analyses temporelles en fournissant des informations supplémentaires sur les dates, telles que les années, les trimestres, les mois, les jours de la semaine, etc.
+```
+Calendrier = 
+VAR MinDate = 
+    MINX(
+        UNION(
+            SELECTCOLUMNS('tblFilm', "Date", 'tblFilm'[FilmReleaseDate]),
+            SELECTCOLUMNS('tblActor', "Date", 'tblActor'[ActorDOB]),
+            SELECTCOLUMNS('tblDirector', "Date", 'tblDirector'[DirectorDOB])
+        ),
+        [Date]
+    )
+VAR MaxDate = 
+    MAXX(
+        UNION(
+            SELECTCOLUMNS('tblFilm', "Date", 'tblFilm'[FilmReleaseDate]),
+            SELECTCOLUMNS('tblActor', "Date", 'tblActor'[ActorDOB]),
+            SELECTCOLUMNS('tblDirector', "Date", 'tblDirector'[DirectorDOB])
+        ),
+        [Date]
+    )
+RETURN
+ADDCOLUMNS (
+    CALENDAR (MinDate, MaxDate),
+    "Year", YEAR([Date]),
+    "MonthNumber", MONTH([Date]),
+    "MonthName", FORMAT([Date], "MMMM"),
+    "Quarter", "Q" & QUARTER([Date]),
+    "Weekday", WEEKDAY([Date]),
+    "WeekdayName", FORMAT([Date], "dddd"),
+    "YearMonth", FORMAT([Date], "YYYY-MM")
+)
+
+```
+
+
+
+**Remarque :** Dans la table **tblFilm** on a la colonne FilmReleaseDate est sous cette forme 
+
+
