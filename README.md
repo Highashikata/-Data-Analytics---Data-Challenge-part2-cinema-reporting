@@ -168,7 +168,7 @@ CALCULATE (
 
 **Parmi les Best practices :** La création de la table Calendrier pour faciliter les analyses temporelles en fournissant des informations supplémentaires sur les dates, telles que les années, les trimestres, les mois, les jours de la semaine, etc.
 ```
-Calendrier = 
+calendrier = 
 VAR MinDate = 
     MINX(
         UNION(
@@ -189,7 +189,7 @@ VAR MaxDate =
     )
 RETURN
 ADDCOLUMNS (
-    CALENDAR (MinDate, MaxDate),
+    CALENDAR (DATE(YEAR(MinDate), MONTH(MinDate), DAY(MinDate)), DATE(YEAR(MaxDate), MONTH(MaxDate), DAY(MaxDate))),
     "Year", YEAR([Date]),
     "MonthNumber", MONTH([Date]),
     "MonthName", FORMAT([Date], "MMMM"),
@@ -199,10 +199,7 @@ ADDCOLUMNS (
     "YearMonth", FORMAT([Date], "YYYY-MM")
 )
 
+
 ```
-
-
-
-**Remarque :** Dans la table **tblFilm** on a la colonne FilmReleaseDate est sous cette forme 
-
+Donc, une fois la table **Calendrier** est créée on va par la suite, la lier aux différentes tables dans le DataModel afin de pouvoir mener des analyses temporelles.
 
