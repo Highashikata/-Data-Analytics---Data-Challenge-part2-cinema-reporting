@@ -55,3 +55,112 @@ Voici les différentes relations qu'on a pu créer dans le Data Model.
   - Relation : Un studio peut produire plusieurs films.
 
 
+##### DAX measures construction and visual creation
+Voici déjà les premières mesures DAX qui me semble cohérentes et pertinentes dans nos analyses.
+
+Tout d'abord pour les bonnes pratiques on va commencer par créer une table supplémentaire qui s'appelle **Mesures** qui va contenir bien évidemment les mesures qu'on créera
+```
+Mesures = { "Mesures" }
+```
+  
+**Nombre total des films**
+```
+TotalFilms =
+COUNT ( 'tblFilm'[FilmID] )
+```
+
+**Nombre de films par réalisteur**
+```
+FilmsByDirector =
+COUNTROWS ( 'tblFilm' )
+```
+
+**Budget Total des Films**
+```
+TotalBudget =
+SUM ( 'tblFilm'[FilmBudgetDollars] )
+```
+
+**Revenus Totaux au Box-Office**
+```
+TotalBoxOffice =
+SUM ( 'tblFilm'[FilmBoxOfficeDollars] )
+```
+
+**Nombre d'Oscars Gagnés par Film**
+```
+TotalOscarsWon =
+SUM ( 'tblFilm'[FilmOscarWins] )
+```
+
+**Nombre de Nominations aux Oscars par Film**
+```
+TotalOscarNominations =
+SUM ( 'tblFilm'[FilmOscarNominations] )
+```
+
+**Ratio Budget/Box-Office**
+```
+BoxOfficeToBudgetRatio =
+DIVIDE (
+    SUM ( 'tblFilm'[FilmBoxOfficeDollars] ),
+    SUM ( 'tblFilm'[FilmBudgetDollars] ),
+    0
+)
+```
+
+**Nombre de Films par Certificat**
+```
+FilmsByCertificate =
+COUNT ( 'tblFilm'[FilmID] )
+```
+
+**Nombre de Films par Pays**
+```
+FilmsByCountry =
+COUNT ( 'tblFilm'[FilmID] )
+```
+
+**Nombre de Films par Studio**
+```
+FilmsByStudio =
+COUNT ( 'tblFilm'[FilmID] )
+```
+
+**Nombre de Films par Langue**
+```
+FilmsByLanguage =
+COUNT( 'tblFilm'[FilmID] )
+```
+
+**Durée Moyenne des Films**
+```
+AverageFilmDuration =
+AVERAGE ( 'tblFilm'[FilmRunTimeMinutes] )
+```
+
+**Nombre de Films par Acteur**
+```
+FilmsByActor =
+COUNTROWS( 'tblCast' )
+```
+
+**Budget Total des Films par Réalisateur**
+```
+TotalBudgetByDirector =
+CALCULATE (
+    SUM ( 'tblFilm'[FilmBudgetDollars] ),
+    ALLEXCEPT ( 'tblDirector', 'tblDirector'[DirectorID] )
+)
+```
+
+**Revenus Totaux au Box-Office par Studio**
+```
+TotalBoxOfficeByStudio =
+CALCULATE (
+    SUM ( 'tblFilm'[FilmBoxOfficeDollars] ),
+    ALLEXCEPT ( 'tblStudio', 'tblStudio'[StudioID] )
+)
+```
+
+**Commentaire :** La fonction est utilisée pour supprimer tous les filtres de la table spécifiée, à l'exception des colonnes indiquées. Cela permet de calculer des agrégations en ignorant certains filtres appliqués par le contexte des lignes, tout en respectant les filtres sur les colonnes spécifiées.
