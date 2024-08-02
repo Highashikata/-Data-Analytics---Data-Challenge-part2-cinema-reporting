@@ -237,3 +237,11 @@ CALCULATE(
     'tblFilm'[FilmOscarWins] > 0
 )
 ```
+
+
+**Budget Moyen des Films**
+
+```
+AverageFilmBudget =
+AVERAGE ( 'tblFilm'[FilmBudgetDollars] )
+```
