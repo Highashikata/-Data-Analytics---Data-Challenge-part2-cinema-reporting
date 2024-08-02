@@ -54,6 +54,10 @@ Voici les différentes relations qu'on a pu créer dans le Data Model.
   - tblStudio[StudioID] -> tblFilm[FilmStudioID]
   - Relation : Un studio peut produire plusieurs films.
 
+Voici le Data Model 
+![image](https://github.com/user-attachments/assets/9ec28784-9506-4d9d-b9e8-8085e5223479)
+
+
 
 ##### DAX measures construction and visual creation
 Voici déjà les premières mesures DAX qui me semble cohérentes et pertinentes dans nos analyses.
