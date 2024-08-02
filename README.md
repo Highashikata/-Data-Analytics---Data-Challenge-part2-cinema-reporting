@@ -1,4 +1,4 @@
-# -Data-Analytics---Data-Challenge-part2-cinema-reporting
+![image](https://github.com/user-attachments/assets/5273c4a8-3884-42c9-b1ea-3166b8ded4cd)# -Data-Analytics---Data-Challenge-part2-cinema-reporting
 
 As part of your film analysis, you'd like to calculate the latest box-office statistics.
 box-office figures. To do this, you'll need to build a Dashboard containing the KPIs you consider relevant.
@@ -203,3 +203,9 @@ ADDCOLUMNS (
 ```
 Donc, une fois la table **Calendrier** est créée on va par la suite, la lier aux différentes tables dans le DataModel afin de pouvoir mener des analyses temporelles.
 
+
+**Pain Point :** En fait, une fois nous avions voulu lier la table **Calendrier** avec les 2 tables **tblActor** et **tblDirector** vous avons rencontré l'errue de l'ambiguité du chemin. Cela signifie que Power BI détecte plusieurs chemins possibles pour atteindre une table à partir d'une autre, ce qui peut créer des conflits lors du filtrage des données.
+
+
+**Solution :**
+On va rendre les 2 relations suivantes inactives et si on aura des utiliser on pourra passer par la formule DAX **USERELATIONSHIP**
