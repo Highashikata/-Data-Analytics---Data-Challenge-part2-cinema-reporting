@@ -208,4 +208,32 @@ Donc, une fois la table **Calendrier** est créée on va par la suite, la lier a
 
 
 **Solution :**
-On va rendre les 2 relations suivantes inactives et si on aura des utiliser on pourra passer par la formule DAX **USERELATIONSHIP**
+On va rendre les 2 relations suivantes inactives et si on aura des utiliser on pourra passer par la formule DAX **USERELATIONSHIP**.
+
+
+Voici quelques mesures supplémentaires pour nos analyses.
+
+On va commencer par créer des segments de filtrages.
+
+Maintenant, on va créer des mesures DAX qu'on va mettre dans des visuels en carte.
+
+**Total des Revenus au Box-Office**
+```
+TotarRevenueBoxOffice =
+SUM ( 'tblFilm'[FilmBoxOfficeDollars] )
+```
+
+**Nombre Total de Nominations aux Oscars :**
+```
+TotalOscarNominations =
+SUM ( 'tblFilm'[FilmOscarNominations] )
+```
+
+**Nombre de Films récompensés par des OSCARS**
+```
+TotalOscarWinningFilms = 
+CALCULATE(
+    COUNT('tblFilm'[FilmID]),
+    'tblFilm'[FilmOscarWins] > 0
+)
+```
