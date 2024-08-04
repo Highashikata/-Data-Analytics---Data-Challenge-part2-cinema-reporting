@@ -249,3 +249,11 @@ CALCULATE(
 AverageFilmBudget =
 AVERAGE ( 'tblFilm'[FilmBudgetDollars] )
 ```
+
+**Repor Pages**
+![image](https://github.com/user-attachments/assets/668fa250-759c-4d1d-a1c8-d4f1553379a6)
+
+![image](https://github.com/user-attachments/assets/99ff64b4-ddf4-4366-9ee7-1934ac8ae7ee)
+
+![image](https://github.com/user-attachments/assets/fb3ebfce-81fb-432e-8b8a-e110670b72a0)
+
