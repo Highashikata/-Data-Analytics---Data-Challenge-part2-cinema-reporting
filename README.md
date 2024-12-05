@@ -3,6 +3,9 @@
 As part of your film analysis, you'd like to calculate the latest box-office statistics.
 box-office figures. To do this, you'll need to build a Dashboard containing the KPIs you consider relevant.
 
+You can also read the corresponding article that I've written in medium about that project:
+[Medium Article](https://medium.com/@bassam.data.mediator/end-to-end-data-analytics-power-bi-project-part-1-35c40c5ffc5e)
+
 ##### Data exploring and data cleaning
 Nous commençons par importer chaque tableau à partir de fichiers CSV dans notre Power BI Desktop.
 Ensuite, nous utilisons les fonctions de profilage des colonnes pour vérifier la granularité des données.
