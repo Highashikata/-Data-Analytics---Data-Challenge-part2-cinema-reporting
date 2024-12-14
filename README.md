@@ -4,7 +4,10 @@ As part of your film analysis, you'd like to calculate the latest box-office sta
 box-office figures. To do this, you'll need to build a Dashboard containing the KPIs you consider relevant.
 
 You can also read the corresponding article that I've written in medium about that project:
-[Medium Article](https://medium.com/@bassam.data.mediator/end-to-end-data-analytics-power-bi-project-part-1-35c40c5ffc5e)
+
+[Medium Article Part 1](https://medium.com/@bassam.data.mediator/end-to-end-data-analytics-power-bi-project-part-1-35c40c5ffc5e)
+
+[Medium Article Part 2](https://medium.com/@bassam.data.mediator/end-to-end-data-analytics-power-bi-project-part-2-5fc02d415c49)
 
 ##### Data exploring and data cleaning
 Nous commençons par importer chaque tableau à partir de fichiers CSV dans notre Power BI Desktop.
